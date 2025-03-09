@@ -1,0 +1,61 @@
+﻿@model IEnumerable<Projeto>
+
+<div class="container">
+    @if (TempData["Erro"] != null)
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            @TempData["Erro"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    <div class="d-flex justify-content-between align-itens-center mb-5">
+        <h1>Projetos</h1>
+        <a class="btn btn-success mx-2" asp-controller="Projeto" asp-action="Cadastrar">Cadastrar novo projeto</a>
+    </div>
+
+<table id="Projeto" class="table table-dark table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Cód.</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Descrição</th>
+            <th scope="col">Data de Início</th>
+            <th scope="col">Data Final</th>
+            <th scope="col">Status</th>
+            <th scope="col">Risco</th>
+            <th scope="col">Responsável</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+
+        @if(Model != null)
+        {
+            @foreach(var projeto in Model)
+            {
+                <tr>
+                    <th scope="row">@projeto.Id</th>
+                    <td>@projeto.Nome</td>
+                    <td>@projeto.Descricao</td>
+                    <td>@projeto.Data_inicio</td>
+                    <td>@projeto.Data_final</td>
+                    <td>@projeto.Status</td>
+                    <td>@projeto.Risco</td>
+                    <td>@projeto.Id_funcionario</td>
+                    <td>
+                            <a asp-controller="Projeto" asp-action="Editar" asp-route-id="@projeto.Id" class="btn btn-warning mx-2">Editar</a>
+                            <a asp-controller="Projeto" asp-action="Excluir" asp-route-id="@projeto.Id" class="btn btn-danger mx-2">Excluir</a>
+                            <a asp-controller="Projeto" asp-action="VincularFuncionario" asp-route-id="@projeto.Id" class="btn btn-primary mx-2">Vincular Funcionário</a>
+                    </td>
+                </tr>
+            }
+
+            
+        }
+       
+    </tbody>
+</table>
+
+</div>

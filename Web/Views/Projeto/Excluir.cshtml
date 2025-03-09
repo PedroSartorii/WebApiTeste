@@ -1,0 +1,87 @@
+﻿@model Projeto
+
+@{
+    ViewData["title"] = "Excluir Projeto";
+}
+
+
+<div class="container bg-dark p-5 rounded-5">
+
+    <div class="col-md-5 text-center">
+        <h1 class="text-light">Excluir de Projetos</h1>
+    </div>
+
+    <form method="post" asp-controller="Projeto" asp-action="Excluir">
+
+        <input type="hidden" asp-for=Id />
+
+        <h2 class="text-light">Tem certeza que deseja excluir o projeto?</h2>
+
+
+
+
+        <div class="mb-3">
+            <label for="Nome" class="form-label text-light">Nome do projeto</label>
+            <input type="text" class="form-control" asp-for="Nome" id="Nome" placeholder="Qual o nome do projeto?" disabled>
+            <span class="text-danger" asp-validation-for="Nome"></span>
+        </div>
+
+
+        <div class="mb-3">
+            <label for="Descrição" class="form-label text-light">Descrição do projeto</label>
+            <input type="text" class="form-control" asp-for="Descricao" id="Descrição" placeholder="Qual a descrição do projeto?" disabled>
+            <span class="text-danger" asp-validation-for="Descricao"></span>
+        </div>
+
+
+        <div class="mb-3">
+            <label for="Status" class="form-label text-light">Status do projeto</label>
+            <select class="form-control" asp-for="Status" id="Status" disabled>
+                <option value="">Selecione um status</option>
+                <option value="Em análise">Em análise</option>
+                <option value="Análise realizada">Análise realizada</option>
+                <option value="Análise aprovada">Análise aprovada</option>
+                <option value="Iniciado">Iniciado</option>
+                <option value="Planejado">Planejado</option>
+                <option value="Em andamento">Em andamento</option>
+                <option value="Encerrado">Encerrado</option>
+                <option value="Cancelado">Cancelado</option>
+            </select>
+            <span class="text-danger" asp-validation-for="Status"></span>
+        </div>
+
+
+        <div class="mb-3">
+            <label for="Risco" class="form-label text-light">Risco do projeto</label>
+            <select class="form-control" asp-for="Risco" id="Risco" disabled>
+                <option value="">Selecione um nível de risco</option>
+                <option value="Baixo risco">Baixo risco</option>
+                <option value="Médio risco">Médio risco</option>
+                <option value="Alto risco">Alto risco</option>
+            </select>
+            <span class="text-danger" asp-validation-for="Risco"></span>
+        </div>
+
+        <div class="mb-3">
+            <label for="Data de Início" class="form-label text-light">Data de Início</label>
+            <input type="date" class="form-control" asp-for="Data_inicio" id="Data de Início" placeholder="Data de Início do projeto" disabled>
+            <span class="text-danger" asp-validation-for="Data_inicio"></span>
+        </div>
+
+        <div class="mb-3">
+            <label for="Data Final" class="form-label text-light">Data Final</label>
+            <input type="date" class="form-control" asp-for="Data_final" id="Data Final" placeholder="Data de Finalização do projeto" disabled>
+            <span class="text-danger" asp-validation-for="Data_final"></span>
+        </div>
+
+        <div class="d-flex gap-5 mt-5">
+            <button type="submit" class="btn btn-danger w-50">Excluir</button>
+            <a class="btn btn-primary w-50" asp-controller="Projeto" asp-action="Index">Voltar</a>
+
+        </div>
+
+
+
+
+    </form>
+</div>
