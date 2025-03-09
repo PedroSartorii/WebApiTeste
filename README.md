@@ -54,7 +54,7 @@ Web/
    - Crie um banco com o nome definido na sua connection string.
    - O EF Core irá gerar as tabelas automaticamente com as migrações.
 
-## 🛠️ Execução e Migrações
+## Execução e Migrações
 
 1. **Restaurar pacotes NuGet:**
 
